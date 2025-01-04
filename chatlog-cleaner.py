@@ -7,7 +7,7 @@ def clean_content(text):
     Clean the .md file content by removing all '#### You:' sections 
     and preserving only '#### ChatGPT:' sections and their following content.
     
-    Also updated to handle gpt2md.py output, which may include lines like:
+    Also updated to handle chat2markdown.py output, which may include lines like:
       > **User:** content
       **ChatGPT:** content
       **Assistant:** content
@@ -31,7 +31,7 @@ def clean_content(text):
             cleaned_lines.append(line)
             continue
         
-        # --- NEW: Additional logic for gpt2md.py output ---
+        # --- NEW: Additional logic for chat2markdown.py output ---
         #   > **User:** or **User:**
         if stripped.startswith("> **User:**") or stripped.startswith("**User:**"):
             current_section = 'you'
